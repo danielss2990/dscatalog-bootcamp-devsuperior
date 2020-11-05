@@ -12,6 +12,7 @@ type FormState = {
 }
 
 type FormEvent = React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
+
 const Form = () => {
 
     const [formData, setFormData] = useState<FormState>({
