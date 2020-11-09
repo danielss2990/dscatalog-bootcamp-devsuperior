@@ -8,6 +8,7 @@ import ProductDetails from './pages/Catalog/components/ProductDetails';
 import Auth from './pages/Auth';
 import history from './core/utils/history';
 
+
 const Routes = () => {
     return (
         <Router history={history}>

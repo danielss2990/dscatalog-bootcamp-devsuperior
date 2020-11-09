@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import './styles.scss';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Products from './components/Products';
-
+import PrivateRoute from 'core/components/Routes/PrivateRoute';
 
 const Admin = () => {
     return (
@@ -11,15 +11,15 @@ const Admin = () => {
             <Navbar />
             <div className="admin-content">
                 <Switch>
-                    <Route path="/admin/products" >
+                    <PrivateRoute path="/admin/products" >
                         <Products />
-                    </Route>
-                    <Route path="/admin/categories" >
+                    </PrivateRoute>
+                    <PrivateRoute path="/admin/categories" >
                         <h1>Categories</h1>
-                    </Route>
-                    <Route path="/admin/users" >
+                    </PrivateRoute>
+                    <PrivateRoute path="/admin/users" allowedRoutes={['ROLE_ADMIN']}>
                         <h1>Users</h1>
-                    </Route>
+                    </PrivateRoute>
                 </Switch>
             </div>
         </div>
