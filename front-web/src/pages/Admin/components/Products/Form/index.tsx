@@ -70,7 +70,7 @@ const Form = () => {
                             onChange={handleOnChange}
                             placeholder="Preço" />
                     </div>
-                    <div className="col">
+                    <div className="col-6">
                         <textarea 
                         className="form-control"
                         name="description"
