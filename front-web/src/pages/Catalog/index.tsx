@@ -56,7 +56,6 @@ const Catalog = () => {
                         </Link>
                     ))
                 )}
-
             </div>
             {productsResponse && 
             (<Pagination totalPages={productsResponse.totalPages} 
