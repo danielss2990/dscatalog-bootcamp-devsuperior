@@ -6,6 +6,7 @@ import './styles.scss';
 
 type Props = {
     product: Product;
+    onRemove: (productId: number) => void;
 }
 
 const Card = ({ product }: Props) => {
