@@ -1,7 +1,6 @@
 import axios, { Method } from 'axios';
 import { CLIENT_ID, CLIENT_SECRET, getSessionData, logout } from './auth';
 import qs from 'qs';
-import history from './history';
 
 type RequestParams = {
     method?: Method;
