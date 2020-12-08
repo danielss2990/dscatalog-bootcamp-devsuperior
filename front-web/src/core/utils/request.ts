@@ -16,7 +16,8 @@ type LoginData = {
     password: string;
 }
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = process.env.RECT_APP_BACKEND_URL ?? 'http://localhost:8080';
+//const BASE_URL = 'https://daniel-dscatalog.herokuapp.com/products';
 
 axios.interceptors.response.use(function (response) {
     return response;
