@@ -4,7 +4,6 @@ import ProductCard from '../ProductCard';
 import { Product } from 'core/types/Product';
 
 test('should render ProductCard', () => {
-
     //Arrange
     const product = {
         name:'computador',
@@ -14,7 +13,7 @@ test('should render ProductCard', () => {
 
     //Act
     render(
-      <ProductCard product={product} />  
+      <ProductCard product={product} />
     );
 
     expect(screen.getByText('computador')).toBeInTheDocument();
