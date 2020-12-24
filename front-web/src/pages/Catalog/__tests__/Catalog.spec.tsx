@@ -21,7 +21,7 @@ const server = setupServer(
   afterAll(() => server.close());
 
 
-test('should render ProductCard', async () => {
+test('should render Catalog', async () => {
     //Arrange
 
     //Act
