@@ -1,8 +1,10 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { color } from 'react-native-reanimated';
+import { ceil, color } from 'react-native-reanimated';
+import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
 
 const colors = {
     white: "#FFFFFF",
@@ -65,7 +67,7 @@ const text = StyleSheet.create({
         marginTop: 10,
         color: colors.darkGray,
     },
-    
+
     productDescription: {
         fontSize: 16,
         fontWeight: "400",
@@ -80,7 +82,23 @@ const text = StyleSheet.create({
     },
     logoutText: {
         color: colors.white,
-    }
+    },
+    addButtonText: {
+        color: colors.white,
+        textTransform: "uppercase",
+        fontWeight: 'bold',
+        padding: 10,
+    },
+    deleteText: {
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        color: colors.red,
+    },
+    editText: {
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        color: colors.mediumGray,
+    },
 });
 
 const theme = StyleSheet.create({
@@ -268,8 +286,8 @@ const theme = StyleSheet.create({
         marginVertical: 10,
     },
 
-    passwordGroup:{
-        flexDirection:"row",
+    passwordGroup: {
+        flexDirection: "row",
         alignItems: "center",
         marginVertical: 25,
     },
@@ -286,12 +304,106 @@ const theme = StyleSheet.create({
     toggle: {
         margin: -40,
     },
+    buttonContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+    },
     buttonTextContainer: {
 
     },
     eyes: {
-        
-    }
+
+    },
+    deleteBtn: {
+        width: "48%",
+        height: 40,
+        borderWidth: 1,
+        borderColor: colors.red,
+        marginVertical: 10,
+
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+    },
+    editBtn: {
+        width: "48%",
+        height: 40,
+        borderWidth: 1,
+        borderColor: colors.mediumGray,
+        marginVertical: 10,
+
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+    },
+    formContainer: {
+        width: deviceWidth,
+        padding: 20,
+    },
+    formCard: {
+        width: "100%",
+        height: "90%",
+        backgroundColor: colors.white,
+        borderRadius: 20,
+        padding: 20,
+        shadowColor: colors.black,
+        shadowOffset:{
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+    },
+    modalContainer: {
+        width: deviceWidth,
+        height: deviceHeight,
+        backgroundColor: "#00000033",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    modalContent: {
+        width: 300,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: "50%",
+        backgroundColor: colors.white,
+        borderRadius: 20,
+        padding: 20,
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+    },
+    modalItem: {
+        width: "100%",
+        backgroundColor: colors.lightGray,
+        padding: 10,
+        marginVertical: 5,
+        borderRadius: 5,
+    },
+    formInput:{
+        width: 290,
+        height: 50,
+        borderWidth: 1,
+        borderColor: colors.mediumGray,
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 15,
+    },
+    textArea: {
+        width: "100%",
+        height: 200,
+        borderWidth: 1,
+        borderColor: colors.mediumGray,
+        borderRadius: 10,
+        marginVertical: 15,
+    },
 
 });
 
@@ -324,7 +436,7 @@ const nav = StyleSheet.create({
     textActive: {
         fontWeight: "bold",
     },
-    logoutBtn:{
+    logoutBtn: {
         width: 60,
         height: 30,
         borderWidth: 1,
@@ -334,7 +446,52 @@ const nav = StyleSheet.create({
         justifyContent: "center",
         marginRight: 20,
     }
-})
+});
+
+const tabbar = StyleSheet.create({
+    container: {
+        width: deviceWidth,
+        height: 80,
+        backgroundColor: colors.white,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+    },
+    pill: {
+        padding: 15,
+        backgroundColor: colors.lightGray,
+        borderRadius: 30,
+    },
+    pillActive: {
+        backgroundColor: colors.bluePill,
+    },
+    pillText: {
+        fontWeight: 'bold',
+        color: colors.mediumGray,
+    },
+    pillTextActive: {
+        color: colors.primary,
+    }
+});
+
+const admin = StyleSheet.create({
+
+    container: {
+        padding: 10,
+        alignItems: 'center',
+    },
+
+    addButton: {
+        width: '100%',
+        height: 50,
+        backgroundColor: colors.primary,
+        margin: 10,
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+});
 
 
-export { colors, theme, text, nav }
+
+
+export { colors, theme, text, nav, tabbar, admin }

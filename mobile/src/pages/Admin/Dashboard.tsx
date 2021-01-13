@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import { View, Text } from "react-native";
-import { theme } from '../../styles';
+import { View } from "react-native";
+import {TabBar} from '../../components';
+
+import Categories from './Categories';
+import Products from './Products/ListProducts';
+import FormProduct from './Products/FormProduct';
+import Users from './Users';
 
 const DashBoard: React.FC = () => {
+    
+    const [screen, setScreen] = useState("products");
+    
     return (
-        <View style={theme.container}>
-            <Text>Dashboard tela temporária</Text>
+        <View >
+            <TabBar screen={screen} setScreen={setScreen} />
+
+            {screen == 'products' && <Products setScreen={setScreen} />}
+            {screen == 'newProduct' && <FormProduct setScreen={setScreen}/>}
+            {screen == 'categories' && <Categories />}
+            {screen == 'users' && <Users />}
+
         </View>
     )
 };

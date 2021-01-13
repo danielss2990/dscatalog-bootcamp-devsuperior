@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, Image, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { doLogout, isAuthenticated } from '../services/auth';
 import menu from '../assets/menu.png';
